@@ -1,0 +1,80 @@
+{
+  "menu": [
+    {
+      "name": "Publicação",
+      "badgeClass": "badge badge-light-warning rounded-pill ms-auto me-1",
+      "icon": "upload-cloud",
+      "slug": "",
+      "submenu": [
+        {
+          "url": "admin/publicacao/listar",
+          "name": "Listar",
+          "icon": "corner-down-right",
+          "slug": "index-publicacao"
+        },
+        {
+          "url": "admin/publicacao/cadastrar",
+          "name": "Cadastrar",
+          "icon": "corner-down-right",
+          "slug": "create-publicacao"
+        }
+      ]
+    },
+
+    {
+      "name": "Empresa",
+      "badgeClass": "badge badge-light-warning rounded-pill ms-auto me-1",
+      "icon": "layers",
+      "slug": "",
+      "submenu": [
+        {
+          "url": "admin/empresa/listar",
+          "name": "Listar",
+          "icon": "corner-down-right",
+          "slug": "index-empresa"
+        },
+        {
+          "url": "admin/empresa/cadastrar",
+          "name": "Cadastrar",
+          "icon": "corner-down-right",
+          "slug": "create-empresa"
+        }
+      ]
+    },
+
+    {
+      "name": "Tipo",
+      "badgeClass": "badge badge-light-warning rounded-pill ms-auto me-1",
+      "icon": "figma",
+      "slug": "",
+      "submenu": [
+        {
+          "url": "admin/tipo/listar",
+          "name": "Listar",
+          "icon": "corner-down-right",
+          "slug": "index-tipo"
+        },
+        {
+          "url": "admin/tipo/cadastrar",
+          "name": "Cadastrar",
+          "icon": "corner-down-right",
+          "slug": "create-tipo"
+        }
+      ]
+    },
+    {
+      "name": "Usuário",
+      "badgeClass": "badge badge-light-warning rounded-pill ms-auto me-1",
+      "icon": "users",
+      "slug": "",
+      "submenu": [
+        {
+          "url": "admin/usuario/listar",
+          "name": "Listar",
+          "icon": "corner-down-right",
+          "slug": "index-usuario"
+        }
+      ]
+    }
+  ]
+}
