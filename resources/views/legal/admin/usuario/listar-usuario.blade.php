@@ -37,8 +37,6 @@
 
       <div class="card-body">
         <div class="row">
-          <h4 class="card-title">{{ $breadcrumbs[1]['name'] }}</h4>
-          
           <form action="" method="POST">
             @csrf
 

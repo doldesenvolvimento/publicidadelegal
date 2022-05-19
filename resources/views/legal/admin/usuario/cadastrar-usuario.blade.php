@@ -46,8 +46,6 @@
         </div>
 
         <div class="card-body">
-          <h4 class="card-title">{{ $breadcrumbs[1]['name'] }}</h4>
-          
           <form action="{{ route('store-usuario') }}" method="POST" class="needs-validation" novalidate>
             
             @csrf

@@ -34,10 +34,6 @@
         </div>
       @endif
 
-      <div class="card-header">
-        <h4 class="card-title">{{ $breadcrumbs[1]['name'] }}</h4>
-      </div>
-
       <div class="card-body">
         <div class="row">
           <form action="" method="POST">

@@ -45,8 +45,6 @@
             @endif
         </div>
         <div class="card-body">
-          <h4 class="card-title">{{ $breadcrumbs[1]['name'] }}</h4>
-          
           <form action="{{ route('edit-publicacao', $publicacao->id) }}" method="POST" class="needs-validation" enctype="multipart/form-data" novalidate>
             
             @csrf
