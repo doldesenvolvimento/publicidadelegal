@@ -70,7 +70,6 @@ class AcervoController extends Controller
      */
     public function create()
     {
-        die(env('CAMINHO'));
         $breadcrumbs = [['link' => "/", 'name' => "Home"], ['link' => "javascript:void(0)", 'name' => "Cadastrar Publicação"], ['name' => "Publicação"]];
         $empresas = Empresa::where('inativo', 2)->orderBy('nome')->get();
         $tipos = Tipo::where('inativo', 2)->get();
