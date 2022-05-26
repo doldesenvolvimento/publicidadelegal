@@ -201,6 +201,10 @@ Route::group(['prefix' => 'page'], function () {
 });
 
 /* Modal Examples */
+Route::get('/home', [PagesController::class, 'home'])->name('home');
+
+
+/* home */
 Route::get('/modal-examples', [PagesController::class, 'modal_examples'])->name('modal-examples');
 
 /* Route Pages */

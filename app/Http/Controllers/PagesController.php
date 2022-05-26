@@ -130,6 +130,16 @@ class PagesController extends Controller
         return view('/content/pages/modal-examples', ['breadcrumbs' => $breadcrumbs]);
     }
 
+        // home
+        public function home()
+        {
+    
+            $breadcrumbs = [['link' => "/", 'name' => "Home"], ['name' => "home"]];
+    
+            return view('/home', ['breadcrumbs' => $breadcrumbs]);
+        }
+
+
     // license
     public function license()
     {
