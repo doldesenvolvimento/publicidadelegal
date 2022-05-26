@@ -148,6 +148,7 @@
                     <div class="btn-group" role="group" aria-label="Basic example">
                       <button type="button" class="btn btn-outline-primary">Baixar</button>
                       <button type="button" class="btn btn-primary">Ver na Edição</button>
+                      
                     </div>
                   </td>
                 </tr>
