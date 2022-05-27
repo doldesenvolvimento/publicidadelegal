@@ -41,7 +41,7 @@
           <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40"><g transform="translate(-55 -5)"><circle cx="20" cy="20" r="20" transform="translate(55 5)" fill="#fff" opacity="0.197"/>Início<g transform="translate(-43.041 -323.607)"><path d="M118.125,358.759c-1.744,0-3.488.007-5.232,0a3.785,3.785,0,0,1-3.778-3.109,4.316,4.316,0,0,1-.069-.827c0-2.646,0-5.292,0-7.938a3.95,3.95,0,0,1,1.317-3.035c1.916-1.781,3.814-3.581,5.724-5.369a2.864,2.864,0,0,1,4.13.015q2.861,2.686,5.722,5.372a3.911,3.911,0,0,1,1.295,2.985c0,2.666,0,5.331,0,8a3.8,3.8,0,0,1-3.928,3.911h-5.173Zm-.011-1.9c1.724,0,3.448.005,5.171,0a1.865,1.865,0,0,0,1.971-1.979q0-4.042,0-8.084a2.007,2.007,0,0,0-.66-1.533q-2.835-2.668-5.67-5.337a1.042,1.042,0,0,0-1.639.007q-2.815,2.646-5.628,5.294a2.106,2.106,0,0,0-.7,1.635c.011,2.655,0,5.31,0,7.965A1.865,1.865,0,0,0,113,356.855C114.706,356.86,116.41,356.856,118.114,356.856Z" transform="translate(0 0)" fill="#fff"/><path d="M172.806,614.9h-10a.951.951,0,1,1,0-1.9h10a.951.951,0,1,1,0,1.9Z" transform="translate(-49.669 -259.018)" fill="#fff"/></g></g></svg>
         </div>
           
-        <img class="order-1 logo text-center img-fluid" src="/images/logo/logo_dpa.png" width="200px" height="" alt="diário do Pará">
+        <img class="order-1 logo text-center img-fluid" src="{{ asset('/images/logo/logo_dpa.png') }}" width="200px" height="" alt="diário do Pará">
           
           <div class="order-2 row">
           <a href="https://dol.com.br/digital/" class="btn btn-danger" role="button" aria-pressed="true">Edição Eletrônica</a>
