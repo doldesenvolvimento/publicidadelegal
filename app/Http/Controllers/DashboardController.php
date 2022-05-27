@@ -40,6 +40,6 @@ class DashboardController extends Controller
       return redirect()->route('index-publicacao');
     }
 
-    return redirect('login');
+    return redirect('home');
   }
 }
