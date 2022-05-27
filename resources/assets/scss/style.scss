@@ -24703,9 +24703,13 @@ footer {
 
 @media(max-width:620px) {}
 
-@media(max-width:470px) {}
+@media(max-width:470px) {
+    .logo  {width: 40%;}
+}
 
-@media(max-width:380px) {}
+@media(max-width:380px) {
+    .logo  {width: 40%;}
+}
 
 .cf-inspector-body .condicoes-de-uso {
     color: rgb(187 187 187) !important;
