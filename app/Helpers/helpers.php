@@ -16,6 +16,8 @@ class Helper
                 $contains = Str::contains($fullURL, 'demo-' . $i);
                 if ($contains === true) {
                     $data = config('custom.' . 'demo-' . $i);
+                }else{
+                    $data = config('custom.custom');
                 }
             }
         } else {
