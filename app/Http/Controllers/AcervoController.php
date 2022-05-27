@@ -92,8 +92,11 @@ class AcervoController extends Controller
             'anexo' => 'mimes:pdf',
         ], $mensagens);
 
+        $empresa = Empresa::find($request->empresa_id);
+        
         $publicacao = new Acervo();
         $publicacao->empresa_id = $request->empresa_id;
+        $publicacao->cnpj = $empresa->cnpj;
         $publicacao->data = $request->data;
         $publicacao->tipo_id = $request->tipo_id;
         $publicacao->url = $request->url;
@@ -163,8 +166,11 @@ class AcervoController extends Controller
             'anexo' => 'mimes:pdf',
         ], $mensagens);
 
+        $empresa = Empresa::find($request->empresa_id);
+
         $publicacao = Acervo::find($id);
         $publicacao->empresa_id = $request->empresa_id;
+        $publicacao->cnpj = $empresa->cnpj;
         $publicacao->data = $request->data;
         $publicacao->tipo_id = $request->tipo_id;
         $publicacao->url = $request->url;

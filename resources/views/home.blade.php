@@ -69,20 +69,30 @@
         </div>
         <!--FORMULARIO DE BUSCA -->
         <div class="card-body mt-2">
-          <form class="dt_adv_search" method="POST">
+          <form action="{{ route('home') }}" class="dt_adv_search" method="POST">
+            @csrf
+
             <div class="row g-1 mb-md-1">
               <div class="col-md-4">
                 <label class="form-label">EMPRESA:</label>
-                <input 
-                  type="text" 
-                  class="form-control" 
-                  name="cnpj"
-                  
-                  
-                                    
-                  id="basicInput" 
-                  placeholder="Nome da empresa" 
-                />
+                <select class="select2 form-select" name="empresa_id" id="empresa_id">
+                  <option value="">Selecione uma opção</option>
+
+                    @if (isset($empresas))
+                      @foreach($empresas as $empresa)
+                        <option value="{{ $empresa->id }}"
+                        @if (isset($filtros['empresa_id']) && $filtros['empresa_id'] == $empresa->id)
+                          selected
+                        @else
+                          @if (old('empresa_id') && old('empresa_id') == $empresa->id)
+                            selected
+                          @endif
+                        @endif
+                        >{{ $empresa->nome }}</option>
+                      @endforeach    
+                    @endif
+
+                </select>
               </div>
               <div class="col-md-3">
                 <label class="form-label">CNPJ:</label>
@@ -91,7 +101,13 @@
                   class="form-control" 
                   name="cnpj"
                   
-                  
+                  @if (isset($filtros['cnpj']))
+                    value = {{ $filtros['cnpj'] }}
+                  @endif
+
+                  @if (old('cnpj'))
+                    value="{{ old('cnpj') }}"  
+                  @endif
                                     
                   id="basicInput" 
                   placeholder="Informe CNPJ" 
@@ -102,6 +118,16 @@
                 <input
                   type="date"
                   class="form-control dt-input"
+                  name="inicio"
+
+                  @if (isset($filtros['inicio']))
+                    value = {{ $filtros['inicio'] }}
+                  @endif
+
+                  @if (old('inicio'))
+                    value="{{ old('inicio') }}"  
+                  @endif
+
                   data-column="3"
                   placeholder="Web designer"
                   data-column-index="2"
@@ -109,7 +135,7 @@
               </div>
               <div class="col-md-2">
                 <label class="form-label w-100">&nbsp;</label>
-                <button class="btn btn-primary w-100" type="button">Pesquisar</button>
+                <button class="btn btn-primary w-100" type="submit">Pesquisar</button>
               </div>
               </div>
              </div>
@@ -138,32 +164,37 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>
-                   <!-- <img
-                      src="http://127.0.0.1:8000/images/portrait/small/avatar-s-5.jpg"
-                      class="me-75"
-                      height="50"
-                      width="50"
-                      alt="empresa"
-                    />-->
-                    <span class="fw-bold">DAKAR COMÉRCIO E SERVIÇO LTDA</span>
-                  </td>
-                  <td>10301008000141</td>
-                  <td>00/00/0000</td>
-                  <td class="text-end">
-                    <div class="btn-group" role="group" aria-label="Basic example">
-                      <button type="button" class="btn btn-outline-primary">Baixar</button>
-                      <button type="button" class="btn btn-primary">Ver na Edição</button>
 
-                    </div>
-                  </td>
-                </tr>
+                @if(isset($publicacoes[0]->id))
+                  @foreach($publicacoes as $publicacao)
+                    <tr>
+                      <td>
+                      <span class="fw-bold">{{ $publicacao->empresa->nome }}</span>
+                      </td>
+                      <td>{{ $publicacao->empresa->cnpj }}</td>
+                      <td>{{ \Carbon\Carbon::parse($publicacao->data)->format("d/m/Y") }}</td>
+                      <td class="text-end">
+                        <div class="btn-group" role="group" aria-label="Basic example">
+                          <a href="{{ route('download-home', str_replace('/', '_', $publicacao->anexo)) }}" target="_blank" class="btn btn-outline-primary">
+                            Baixar
+                          </a>
+                          <a href="{{ $publicacao->url }}" class="btn btn-primary" target="_blank">Ver na Edição</a>
+                        </div>
+                      </td>
+                    </tr>
+                  @endforeach 
+                @else 
+                    <tr><td>Nenhum registro encontrado!</td></tr>
+                @endif
+
               </tbody>
             </table>
           </div>
         </div>
       </div>
+    </div>
+    <div>
+      @if (!empty($filtros)) {{$publicacoes->appends($filtros)->links()}} @else {{$publicacoes->links()}} @endif
     </div>
   </div>
 
@@ -201,7 +232,7 @@
   <a class="nav-link" href="https://dol.com.br/parceiros?d=1" title="PARCEIROS">PARCEIROS</a>
   </li>
   <li>
-    <a class="nav-link-iti" href="https://verificador.iti.gov.br/" title="VALIDADOR">VALIDADOR (ITI)</a>
+    <a class="nav-link-iti" href="https://verificador.iti.gov.br/" title="VALIDADOR" target="_blank">VALIDADOR (ITI)</a>
     </li>
   </ul>
 

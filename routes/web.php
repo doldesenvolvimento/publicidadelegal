@@ -201,7 +201,8 @@ Route::group(['prefix' => 'page'], function () {
 });
 
 /* Modal Examples */
-Route::get('/home', [PagesController::class, 'home'])->name('home');
+Route::any('home', [PagesController::class, 'home'])->name('home');
+Route::get('home/download/{url}/', [PagesController::class, 'download_home'])->name('download-home');
 
 
 /* home */

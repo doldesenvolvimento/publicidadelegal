@@ -40,7 +40,7 @@
           <a href="https://verificador.iti.gov.br/" target="_blank">Instituto Nacional de Tecnologia da Informação (ITI).</a>
         </p>
         <div class="row">
-          <form action="" method="POST">
+          <form action="{{ route('index-empresa') }}" method="POST">
             @csrf
 
             <div class="col-xl-4 col-md-6 col-12">

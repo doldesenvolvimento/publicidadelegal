@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Acervo;
+use App\Models\Empresa;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class PagesController extends Controller
 {
@@ -131,13 +134,41 @@ class PagesController extends Controller
     }
 
         // home
-        public function home()
+        public function home(Request $request)
         {
     
             $breadcrumbs = [['link' => "/", 'name' => "Home"], ['name' => "home"]];
-    
-            return view('/home', ['breadcrumbs' => $breadcrumbs]);
+            $filtros = $request->except('_token');
+            $empresas = Empresa::where('inativo', 2)->orderBy('nome')->get();
+            
+            $publicacoes = Acervo::where(function($query) use ($request){
+                                        if(!empty($request->inicio))
+                                        {
+                                            $query->where('data', $request->inicio);
+                                        }
+                
+                                        if(!empty($request->empresa_id))
+                                        {
+                                            $query->where('empresa_id', $request->empresa_id);        
+                                        }
+
+                                        if(!empty($request->cnpj))
+                                        {
+                                            $query->where('cnpj', $request->cnpj);        
+                                        }
+                                })
+                                ->orderByDesc('id')
+                                ->paginate();
+            
+            return view('home', compact(['breadcrumbs', 'publicacoes', 'filtros', 'empresas', ]));
         }
+
+    // Outros metodos
+    public function download_home($caminho)
+    {
+        $caminho = str_replace('_', '/', $caminho);
+        return Storage::download($caminho);
+    }
 
 
     // license

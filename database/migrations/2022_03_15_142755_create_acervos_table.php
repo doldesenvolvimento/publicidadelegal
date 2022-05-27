@@ -16,6 +16,7 @@ class CreateAcervosTable extends Migration
         Schema::create('acervos', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('empresa_id');
+            $table->string('cnpj');
             $table->unsignedBigInteger('tipo_id');
             $table->date('data');
             $table->string('url');
