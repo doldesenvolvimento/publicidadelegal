@@ -29,8 +29,8 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Diário do Pará">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="theme-color" content="#1d64b6">
-<meta name="msapplication-TileColor" content="#1d64b6">
+<meta name="theme-color" content="#000000">
+<meta name="msapplication-TileColor" content="#000000">
 
  <!-- cabeçalho navbar-->
 <header>
