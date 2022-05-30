@@ -19,7 +19,7 @@ class CreateAcervosTable extends Migration
             $table->string('cnpj');
             $table->unsignedBigInteger('tipo_id');
             $table->date('data');
-            $table->string('url');
+            $table->string('url')->nullable();
             $table->string('anexo');
             $table->integer('inativo')->default(2); // 1 = inativo, 2 = ativo
             $table->unsignedBigInteger('criador');

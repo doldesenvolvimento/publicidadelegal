@@ -171,14 +171,20 @@
                       <td>
                       <span class="fw-bold">{{ $publicacao->empresa->nome }}</span>
                       </td>
-                      <td>{{ $publicacao->empresa->cnpj }}</td>
+                      <td>
+                        {!! app(App\Http\Controllers\UtilController::class)->mask($publicacao->cnpj, '##.###.###/####-##') !!}
+                      </td>
                       <td>{{ \Carbon\Carbon::parse($publicacao->data)->format("d/m/Y") }}</td>
                       <td class="text-end">
                         <div class="btn-group" role="group" aria-label="Basic example">
                           <a href="{{ route('download-home', str_replace('/', '_', $publicacao->anexo)) }}" target="_blank" class="btn btn-outline-primary">
                             Baixar
                           </a>
-                          <a href="{{ $publicacao->url }}" class="btn btn-primary" target="_blank">Ver na Edição</a>
+
+                          @if(!empty($publicacao->url))
+                            <a href="{{ $publicacao->url }}" class="btn btn-primary" target="_blank">Ver na Edição</a>
+                          @endif
+
                         </div>
                       </td>
                     </tr>

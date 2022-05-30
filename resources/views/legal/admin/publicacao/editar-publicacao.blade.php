@@ -102,7 +102,6 @@
                 pattern="https://dol.com.br/digital/.*"
                 aria-label="Url"
                 aria-describedby="basic-addon-name"
-                required
               />
               <div class="invalid-feedback">Por favor, informe Url do Arquivo na Edição Eletrônica.</div>
             </div>

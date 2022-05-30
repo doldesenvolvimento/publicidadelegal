@@ -91,7 +91,7 @@
             </div>
 
             <div class="mb-1">
-              <label class="form-label" for="basic-addon-name">Url do Arquivo E.E <strong class="text-danger">(Obrigatório)</strong></label>
+              <label class="form-label" for="basic-addon-name">Url do Arquivo E.E</label>
 
               <input
                 type="url"
@@ -103,7 +103,6 @@
                 pattern="https://dol.com.br/digital/.*"
                 aria-label="Url"
                 aria-describedby="basic-addon-name"
-                required
               />
               <div class="invalid-feedback">Por favor, informe Url do Arquivo na Edição Eletrônica.</div>
             </div>

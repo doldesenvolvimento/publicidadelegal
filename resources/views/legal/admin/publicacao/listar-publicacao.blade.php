@@ -187,7 +187,11 @@
                       </a>
                     </div>
                   </td>
-                  <td><a href="{{ $publicacao->url }}" class="btn btn-outline-success" target="_blank">Visualizar</a></td>
+                  <td>
+                    @if(!empty($publicacao->url))
+                      <a href="{{ $publicacao->url }}" class="btn btn-outline-success" target="_blank">Visualizar</a>
+                    @endif
+                  </td>
                   <td>
                     @if ($publicacao->inativo == 2)
                       <span class="badge rounded-pill badge-light-primary me-1">Ativo</span>

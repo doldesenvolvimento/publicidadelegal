@@ -202,4 +202,5 @@ return [
     "Empresa" => "Empresa",
     "Tipo" => "Tipo",
     "Usuário" => "Usuário",
+    "Ver no Portal" => "Ver no Portal",
 ];

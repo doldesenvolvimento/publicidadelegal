@@ -99,7 +99,7 @@ class AcervoController extends Controller
         $publicacao->cnpj = $empresa->cnpj;
         $publicacao->data = $request->data;
         $publicacao->tipo_id = $request->tipo_id;
-        $publicacao->url = $request->url;
+        $publicacao->url = (!empty($request->url))?$request->url:null;
         $publicacao->anexo = $request->file('anexo')->store("public/assinatura/pdfs/{$publicacao->empresa->cnpj}");
         $publicacao->criador = Auth::id();
         $publicacao->modificador = Auth::id();
@@ -173,7 +173,7 @@ class AcervoController extends Controller
         $publicacao->cnpj = $empresa->cnpj;
         $publicacao->data = $request->data;
         $publicacao->tipo_id = $request->tipo_id;
-        $publicacao->url = $request->url;
+        $publicacao->url = (!empty($request->url))?$request->url:null;
         $publicacao->inativo = $request->inativo;
         $publicacao->modificador = Auth::id();
 
