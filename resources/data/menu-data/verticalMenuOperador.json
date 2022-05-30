@@ -17,13 +17,6 @@
           "name": "Cadastrar",
           "icon": "corner-down-right",
           "slug": "create-publicacao"
-        },
-        {
-          "url": "home",
-          "name": "Ver no Portal",
-          "icon": "corner-down-right",
-          "slug": "create-publicacao",
-          "newTab": true
         }
       ]
     },
@@ -82,6 +75,13 @@
           "slug": "index-usuario"
         }
       ]
+    },
+    {
+      "url": "home",
+      "name": "Ver no Portal",
+      "icon": "eye",
+      "slug": "create-publicacao",
+      "newTab": true
     }
   ]
 }

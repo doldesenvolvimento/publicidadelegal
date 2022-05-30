@@ -90,7 +90,7 @@
             </div>
 
             <div class="mb-1">
-              <label class="form-label" for="basic-addon-name">Url do Arquivo E.E <strong class="text-danger">(Obrigatório)</strong></label>
+              <label class="form-label" for="basic-addon-name">Url do Arquivo E.E</label>
 
               <input
                 type="url"
@@ -107,7 +107,7 @@
             </div>
 
             <div class="mb-1">
-              <label class="form-label" for="select2-basic">Situação</label>
+              <label class="form-label" for="select2-basic">Situação <strong class="text-danger">(Obrigatório)</strong></label>
               <select class="select2 form-select" name="inativo" id="inativo">
                   <option value="">Selecione uma opção</option>
                   <option value="2" @if (old('inativo') == 2) selected @else @if ($publicacao->inativo == 2) selected @endif @endif>Ativo</option>
