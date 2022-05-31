@@ -44,7 +44,7 @@ WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BET
     --bs-gray-800: #1e1e1e;
     --bs-gray-900: #2a2e30;
     --bs-primary: #000000;
-    --bs-secondary: #82868b;
+    --bs-secondary: #d30002;
     --bs-success: #28c76f;
     --bs-info: #00cfe8;
     --bs-warning: #ff9f43;
@@ -3440,7 +3440,7 @@ fieldset:disabled .btn {
 
 .btn-secondary {
     color: #fff;
-    background-color: #82868b;
+    background-color: #d30002 !important;
     border-color: #82868b;
 }
 
@@ -3620,8 +3620,9 @@ fieldset:disabled .btn {
 
 .btn-danger {
     color: #fff;
-    background-color: #ea5455;
+    background-color: #4d4d4d !important;
     border-color: #ea5455;
+    border-radius: 5px !important;
 }
 
 .btn-danger:hover {
@@ -14367,7 +14368,7 @@ select:-webkit-autofill {
 }
 
 .navbar-floating .navbar-container:not(.main-menu-content) {
-    padding: 0.8rem 1rem;
+    padding: 0.1rem 1rem;
 }
 
 .navbar-floating .header-navbar-shadow {
@@ -17263,8 +17264,9 @@ input:focus ~ .bg-light {
 
 .btn-secondary {
     border-color: #82868b !important;
-    background-color: #82868b !important;
+    background-color: #d30002 !important;
     color: #fff !important;
+    border-radius: 25px !important;
 }
 
 .btn-secondary:focus,
@@ -18499,8 +18501,9 @@ input:focus ~ .bg-warning {
 
 .btn-danger {
     border-color: #ea5455 !important;
-    background-color: #ea5455 !important;
+    background-color: #787777 !important;
     color: #fff !important;
+    border-radius: 5px !important;
 }
 
 .btn-danger:focus,
@@ -19678,7 +19681,7 @@ footer.footer-border {
 }
 
 .main-menu.menu-light .navigation > li.active > a {
-    box-shadow: 0 0 10px 1px rgba(115, 103, 240, 0.7);
+    box-shadow: 0 0 10px 1px rgba(100, 100, 100, 70%) !important;
     color: #fff;
     font-weight: 400;
     border-radius: 4px;
@@ -23076,8 +23079,8 @@ tr.group {
 .btn-danger {
     background-color: #d30002 !important;
     color: rgb(255, 255, 255) !important;
-    border-radius: 35px;
     border-color: rgb(234, 84, 85) !important;
+    border-radius: 5px !important;
 }
 
 h6,
@@ -23311,10 +23314,14 @@ a.nav-link-iti {
 }
 
 .dol-f-38 {
-    font-size: 35px;
-    font-family: Nunito, sans-serif;
-    font-weight: 800;
-}
+        font-size: 40px;
+        font-family: Nunito, sans-serif;
+        font-weight: 800;
+        padding-top: 20px;
+        display: flex;
+        flex-wrap: nowrap;
+        align-content: normal;
+    }
 
 svg.feather.feather-headphones {
     height: 50px;
@@ -24747,5 +24754,11 @@ footer {
 }
 
 img.whatsapp {
-    width: 80px;
+    width: 60px !important;
 }
+
+
+
+
+
+
