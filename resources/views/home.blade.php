@@ -160,7 +160,7 @@
                   <th>Empresa</th>
                   <th>CNPJ</th>
                   <th>TIPO</th>
-                  <th>Data</th>
+                  <th>DATA</th>
                   <th></th>
                 </tr>
               </thead>
@@ -172,10 +172,11 @@
                       <td>
                       <span class="fw-bold">{{ $publicacao->empresa->nome }}</span>
                       </td>
-                      <td>
+                      <td class="fw-bold">
                         {!! app(App\Http\Controllers\UtilController::class)->mask($publicacao->cnpj, '##.###.###/####-##') !!}
                       </td>
-                      <td>{{ \Carbon\Carbon::parse($publicacao->data)->format("d/m/Y") }}</td>
+                      <td class="fw-bold">{{ $publicacao->tipo->descricao }}</td>
+                      <td class="fw-bold">{{ \Carbon\Carbon::parse($publicacao->data)->format("d/m/Y") }}</td>
                       <td class="text-end">
                         <div class="text-nowrap btn-group" role="group" aria-label="Basic example">
                           <a href="{{ route('download-home', str_replace('/', '_', $publicacao->anexo)) }}" target="_blank" class="btn btn-outline-primary">
