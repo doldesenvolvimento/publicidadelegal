@@ -85,12 +85,26 @@ class AcervoController extends Controller
     public function store(Request $request)
     {
         $mensagens = [
-            'anexo.mimes' => 'Só é aceito arquivo em formato PDF!',
+            'data.required' => 'Campo Data é Obrigatório!',
+            'empresa_id.required' => 'Campo Empresa é Obrigatório!',
+            'tipo_id.required' => 'Campo Tipo é Obrigatório!',
+            'anexo.required' => 'Campo Arquivo é Obrigatório!',
+            'url.starts_with' => 'Url inválida!',
+            'anexo.mimes' => 'Só é aceito Arquivo em formato PDF!',
         ];
 
         $request->validate([
-            'anexo' => 'mimes:pdf',
+            'data' => 'required',
+            'empresa_id' => 'required',
+            'tipo_id' => 'required',
+            'url' => 'nullable|starts_with:https://dol.com.br/digital/',
+            'anexo' => 'required|mimes:pdf',
         ], $mensagens);
+        
+        if(empty($request->data))
+        {
+            return redirect()->route('create-publicacao');
+        }
 
         $empresa = Empresa::find($request->empresa_id);
         

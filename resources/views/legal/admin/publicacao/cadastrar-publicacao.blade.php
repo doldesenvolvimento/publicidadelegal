@@ -150,13 +150,14 @@
       
       setTimeout(function(){
         toggleDisabled(e)
-      },4000);
+      },3000);
 
-      document.getElementById("store-publicacao").submit();
+      //document.getElementById("store-publicacao").submit();
     }
 
     function toggleDisabled(elem){
       elem.disabled = !elem.disabled;
+      document.getElementById("store-publicacao").submit();
     }
 
   </script>
