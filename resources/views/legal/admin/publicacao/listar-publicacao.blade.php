@@ -162,7 +162,8 @@
               <th>Empresa</th>
               <th>Tipo</th>
               <th>Data</th>
-              <th>Baixar</th>
+              <th>Original</th>
+              <th>Certificado</th>
               <th>Site</th>
               <th>Situação</th>
               <th>Ações</th>
@@ -179,6 +180,13 @@
                   <td>{{ $publicacao->tipo->descricao }}</td>
                   <td>
                     {{ \Carbon\Carbon::parse($publicacao->data)->format("d/m/Y") }}
+                  </td>
+                  <td>
+                    <div class="icon-wrapper">
+                      <a href="{{ route('download-publicacao', str_replace('/', '_', $publicacao->original)) }}"target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-download-cloud"><polyline points="8 17 12 21 16 17"></polyline><line x1="12" y1="12" x2="12" y2="21"></line><path d="M20.88 18.09A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.29"></path></svg>
+                      </a>
+                    </div>
                   </td>
                   <td>
                     <div class="icon-wrapper">

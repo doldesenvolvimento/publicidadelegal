@@ -46,7 +46,7 @@
         </div>
 
         <div class="card-body">
-          <form action="{{ route('store-publicacao') }}" method="POST" class="needs-validation" enctype="multipart/form-data" novalidate>
+          <form action="{{ route('store-publicacao') }}" id="store-publicacao" method="POST" class="needs-validation" enctype="multipart/form-data" novalidate>
             
             @csrf
 
@@ -116,12 +116,13 @@
                     name="anexo" 
                     type="file" 
                     id="anexo"
+                    accept=".pdf"
                     required 
                 />
                 <div class="invalid-feedback">Por favor, informe o Arquivo.</div>
             </div>
 
-            <button type="submit" class="btn btn-primary">Cadastrar</button>
+            <button type="submit" class="btn btn-primary" onclick="myFunction(this)">Cadastrar</button>
             <a href="{{ route('index-publicacao') }}" class="btn btn-danger">Cancelar</a>
           </form>
         </div>
@@ -143,4 +144,20 @@
 @section('page-script')
   <!-- Page js files -->
   <script src="{{ asset(mix('js/scripts/forms/form-validation.js')) }}"></script>
+  <script>
+    function myFunction(e) {
+      e.disabled = true;
+      
+      setTimeout(function(){
+        toggleDisabled(e)
+      },4000);
+
+      document.getElementById("store-publicacao").submit();
+    }
+
+    function toggleDisabled(elem){
+      elem.disabled = !elem.disabled;
+    }
+
+  </script>
 @endsection

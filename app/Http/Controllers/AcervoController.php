@@ -101,6 +101,7 @@ class AcervoController extends Controller
         $publicacao->tipo_id = $request->tipo_id;
         $publicacao->url = (!empty($request->url))?$request->url:null;
         $publicacao->anexo = $request->file('anexo')->store("public/assinatura/pdfs/{$publicacao->empresa->cnpj}");
+        $publicacao->original = $request->file('anexo')->store("public/original/{$publicacao->empresa->cnpj}");
         $publicacao->criador = Auth::id();
         $publicacao->modificador = Auth::id();
 
