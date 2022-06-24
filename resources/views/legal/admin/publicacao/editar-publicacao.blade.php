@@ -124,6 +124,7 @@
                     class="form-control" 
                     name="anexo" 
                     type="file" 
+                    accept=".pdf"
                     id="anexo"
                 />
                 <div class="invalid-feedback">Por favor, informe o Arquivo.</div>

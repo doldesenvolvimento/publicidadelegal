@@ -181,7 +181,9 @@ class AcervoController extends Controller
         if($request->hasFile('anexo'))
         {
             Storage::delete($publicacao->anexo);
+            Storage::delete($publicacao->original);
             $publicacao->anexo = $request->file('anexo')->store("public/assinatura/pdfs/{$publicacao->empresa->cnpj}");
+            $publicacao->original = $request->file('anexo')->store("public/original/{$publicacao->empresa->cnpj}");
         }
 
         // assinando pdf
@@ -191,6 +193,7 @@ class AcervoController extends Controller
         Storage::delete($publicacao->anexo);
 
         $publicacao->anexo = "public/assinatura/pdfs/{$publicacao->empresa->cnpj}/$assinado";
+        
 
         if($publicacao->save())
         {
