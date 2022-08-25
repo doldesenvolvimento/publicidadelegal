@@ -51,7 +51,7 @@
             @csrf
             
             <div class="mb-1">
-              <label class="form-label" for="basic-addon-name">CNPJ <strong class="text-danger">(Obrigatório)</strong></label>
+              <label class="form-label" for="basic-addon-name">CPF/CNPJ <strong class="text-danger">(Obrigatório)</strong></label>
 
               <input
                 type="number"
@@ -59,12 +59,12 @@
                 value="{{ old('cnpj') }}"
                 id="basic-addon-name"
                 class="form-control"
-                placeholder="Informe CNPJ da Empresa (somente números)"
-                aria-label="CNPJ"
+                placeholder="Informe CPF/CNPJ da Empresa (somente números)"
+                aria-label="CPF/CNPJ"
                 aria-describedby="basic-addon-name"
                 required
               />
-              <div class="invalid-feedback">Por favor, informe CNPJ da Empresa (somente números).</div>
+              <div class="invalid-feedback">Por favor, informe CPF/CNPJ da Empresa (somente números).</div>
             </div>
             
             <div class="mb-1">

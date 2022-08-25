@@ -35,7 +35,7 @@ class EmpresaController extends Controller
                                 }
                             })
                             ->orderByDesc('id')
-                            ->paginate(2);
+                            ->paginate();
                             
         return view('legal/admin/empresa/listar-empresa', compact(['breadcrumbs', 'empresas', 'filtros', ]));
     }
@@ -60,12 +60,12 @@ class EmpresaController extends Controller
     public function store(Request $request)
     {
         $mensagens = [
-            'cnpj.cnpj' => 'CNPJ inválido!',
-            'cnpj.unique' => 'CNPJ informado já existe!',
+            'cnpj.cpf_ou_cnpj' => 'CPF/CNPJ inválido!',
+            'cnpj.unique' => 'CPF/CNPJ informado já existe!',
         ];
 
         $request->validate([
-            'cnpj' => 'cnpj|unique:empresas',
+            'cnpj' => 'cpf_ou_cnpj|unique:empresas',
         ], $mensagens);
         
         $empresa = new Empresa();
@@ -119,11 +119,11 @@ class EmpresaController extends Controller
     public function update(Request $request, $id)
     {
         $mensagens = [
-            'cnpj.cnpj' => 'CNPJ inválido!',
+            'cnpj.cpf_ou_cnpj' => 'CPF/CNPJ inválido!',
         ];
 
         $request->validate([
-            'cnpj' => 'cnpj',
+            'cnpj' => 'cpf_ou_cnpj',
         ], $mensagens);
         
         $empresa = Empresa::find($id);

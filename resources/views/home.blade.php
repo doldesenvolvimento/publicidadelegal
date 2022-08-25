@@ -95,7 +95,7 @@
                 </select>
               </div>
               <div class="col-md-3">
-                <label class="form-label">CNPJ:</label>
+                <label class="form-label">CPF/CNPJ:</label>
                 <input 
                   type="number" 
                   class="form-control" 
@@ -110,7 +110,7 @@
                   @endif
                                     
                   id="basicInput" 
-                  placeholder="Informe CNPJ" 
+                  placeholder="CPF/CNPJ (somente números)" 
                 />
               </div>
               <div class="col-md-3">
@@ -158,7 +158,7 @@
               <thead>
                 <tr>
                   <th>Empresa</th>
-                  <th>CNPJ</th>
+                  <th>CPF/CNPJ</th>
                   <th>TIPO</th>
                   <th>DATA</th>
                   <th></th>
@@ -173,7 +173,11 @@
                       <span class="fw-bold">{{ $publicacao->empresa->nome }}</span>
                       </td>
                       <td class="fw-bold">
-                        {!! app(App\Http\Controllers\UtilController::class)->mask($publicacao->cnpj, '##.###.###/####-##') !!}
+                        @if (strlen($publicacao->cnpj) == 14)
+                          {!! app(App\Http\Controllers\UtilController::class)->mask($publicacao->cnpj, '##.###.###/####-##') !!}    
+                        @else
+                          {!! app(App\Http\Controllers\UtilController::class)->mask($publicacao->cnpj, '###.###.###-##') !!}
+                        @endif
                       </td>
                       <td class="fw-bold">{{ $publicacao->tipo->descricao }}</td>
                       <td class="fw-bold">{{ \Carbon\Carbon::parse($publicacao->data)->format("d/m/Y") }}</td>

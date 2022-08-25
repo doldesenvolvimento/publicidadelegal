@@ -57,12 +57,12 @@
                 value=@if (old('cnpj')) {{ old('cnpj') }} @else {{ $empresa->cnpj }} @endif
                 id="basic-addon-name"
                 class="form-control"
-                placeholder="Informe CNPJ da Empresa (somente números)"
-                aria-label="CNPJ"
+                placeholder="Informe CPF/CNPJ da Empresa (somente números)"
+                aria-label="CPF/CNPJ"
                 aria-describedby="basic-addon-name"
                 required
               />
-              <div class="invalid-feedback">Por favor, informe CNPJ da Empresa (somente números).</div>
+              <div class="invalid-feedback">Por favor, informe CPF/CNPJ da Empresa (somente números).</div>
             </div>
             
             <div class="mb-1">

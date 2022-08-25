@@ -65,7 +65,7 @@
 
             <div class="col-xl-4 col-md-6 col-12">
               <div class="mb-1">
-                <label class="form-label" for="basicInput">CNPJ</label>
+                <label class="form-label" for="basicInput">CPF/CNPJ</label>
                 <input 
                   type="number" 
                   class="form-control" 
@@ -80,7 +80,7 @@
                   @endif
                   
                   id="basicInput" 
-                  placeholder="Informe CNPJ" 
+                  placeholder="Informe CPF/CNPJ" 
                 />
               </div>
             </div>
@@ -110,7 +110,7 @@
           <thead>
             <tr>
               <th>Empresa</th>
-              <th>CNPJ</th>
+              <th>CPF/CNPJ</th>
               <th>Situação</th>
               <th>Ações</th>
             </tr>
