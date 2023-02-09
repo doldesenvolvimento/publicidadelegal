@@ -113,6 +113,27 @@
                   placeholder="CPF/CNPJ (somente números)" 
                 />
               </div>
+              <div class="col-md-4">
+                <label class="form-label">TIPO:</label>
+                <select class="select2 form-select" name="tipo_id" id="tipo_id">
+                  <option value="">Selecione uma opção</option>
+
+                    @if (isset($tipos))
+                      @foreach($tipos as $tipo)
+                        <option value="{{ $tipo->id }}"
+                        @if (isset($filtros['tipo_id']) && $filtros['tipo_id'] == $tipo->id)
+                          selected
+                        @else
+                          @if (old('tipo_id') && old('tipo_id') == $tipo->id)
+                            selected
+                          @endif
+                        @endif
+                        >{{ $tipo->descricao }}</option>
+                      @endforeach    
+                    @endif
+
+                </select>
+              </div>
               <div class="col-md-3">
                 <label class="form-label">DATA DA PUBLICAÇÃO:</label>
                 <input

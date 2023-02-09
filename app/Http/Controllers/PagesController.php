@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Acervo;
 use App\Models\Empresa;
+use App\Models\Tipo;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -141,6 +142,7 @@ class PagesController extends Controller
             $breadcrumbs = [['link' => "/", 'name' => "Home"], ['name' => "home"]];
             $filtros = $request->except('_token');
             $empresas = Empresa::where('inativo', 2)->orderBy('nome')->get();
+            $tipos = Tipo::where('inativo', 2)->orderBy('descricao')->get();
 
             $publicacoes = Acervo::where(function($query) use ($request){
                                         if(!empty($request->inicio))
@@ -157,12 +159,17 @@ class PagesController extends Controller
                                         {
                                             $query->where('cnpj', $request->cnpj);        
                                         }
+
+                                        if(!empty($request->tipo_id))
+                                        {
+                                            $query->where('tipo_id', $request->tipo_id);
+                                        }
                                 })
                                 ->whereDate('data', '<=', Carbon::parse(now())->format("Y-m-d"))
                                 ->orderByDesc('id')
                                 ->paginate();
             
-            return view('home', compact(['breadcrumbs', 'publicacoes', 'filtros', 'empresas', ]));
+            return view('home', compact(['breadcrumbs', 'publicacoes', 'filtros', 'empresas', 'tipos', ]));
         }
 
     // Outros metodos
