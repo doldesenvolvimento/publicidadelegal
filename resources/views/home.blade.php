@@ -156,7 +156,7 @@
               </div>
               <div class="col-md-1">
                 <label class="form-label">&nbsp;</label>
-                <button class="btn btn-primary w-100" type="submit"><i data-feather="search"></i></button>
+                <button class="btn btn-primary w-100 p-0" type="submit"><i data-feather="search"></i></button>
               </div>
               </div>
              </div>
