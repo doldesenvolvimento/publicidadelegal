@@ -73,7 +73,7 @@
             @csrf
 
             <div class="row g-1 mb-md-1">
-              <div class="col-md-4">
+              <div class="col-md-3">
                 <label class="form-label">EMPRESA:</label>
                 <select class="select2 form-select" name="empresa_id" id="empresa_id">
                   <option value="">Selecione uma opção</option>
@@ -113,7 +113,7 @@
                   placeholder="CPF/CNPJ (somente números)" 
                 />
               </div>
-              <div class="col-md-4">
+              <div class="col-md-3">
                 <label class="form-label">TIPO:</label>
                 <select class="select2 form-select" name="tipo_id" id="tipo_id">
                   <option value="">Selecione uma opção</option>
@@ -134,7 +134,7 @@
 
                 </select>
               </div>
-              <div class="col-md-3">
+              <div class="col-md-2">
                 <label class="form-label">DATA DA PUBLICAÇÃO:</label>
                 <input
                   type="date"
@@ -154,9 +154,9 @@
                   data-column-index="2"
                 />
               </div>
-              <div class="col-md-2">
-                <label class="form-label w-100">&nbsp;</label>
-                <button class="btn btn-primary w-100" type="submit">Pesquisar</button>
+              <div class="col-md-1">
+                <label class="form-label">&nbsp;</label>
+                <button class="btn btn-primary w-100" type="submit"><i data-feather="search"></i></button>
               </div>
               </div>
              </div>
