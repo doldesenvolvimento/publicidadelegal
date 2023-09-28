@@ -166,6 +166,7 @@ class PagesController extends Controller
                                         }
                                 })
                                 ->whereDate('data', '<=', Carbon::parse(now())->format("Y-m-d"))
+                                ->where('inativo', 2)
                                 ->orderByDesc('id')
                                 ->paginate();
             
