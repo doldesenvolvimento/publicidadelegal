@@ -35,7 +35,7 @@ class EmpresaController extends Controller
                                 }
                             })
                             ->orderByDesc('id')
-                            ->paginate();
+                            ->simplePaginate();
                             
         return view('legal/admin/empresa/listar-empresa', compact(['breadcrumbs', 'empresas', 'filtros', ]));
     }

@@ -168,9 +168,36 @@ class PagesController extends Controller
                                 ->whereDate('data', '<=', Carbon::parse(now())->format("Y-m-d"))
                                 ->where('inativo', 2)
                                 ->orderByDesc('id')
-                                ->paginate();
+                                ->simplePaginate();
             
             return view('home', compact(['breadcrumbs', 'publicacoes', 'filtros', 'empresas', 'tipos', ]));
+        }
+
+        public function detalhe($id, Request $request)
+        {
+    
+            $breadcrumbs = [['link' => "/", 'name' => "Detalhe"], ['name' => "detalhe"]];
+            $filtros = $request->except('_token');
+            $empresa = Empresa::find($id);
+            $tipos = Tipo::where('inativo', 2)->orderBy('descricao')->get();
+
+            $publicacoes = Acervo::where(function($query) use ($request){
+                                        if(!empty($request->inicio) && !empty($request->fim)) {
+                                            $query->whereBetween('data', [$request->inicio, $request->fim]);
+                                        }
+                
+                                        if(!empty($request->tipo_id))
+                                        {
+                                            $query->where('tipo_id', $request->tipo_id);
+                                        }
+                                })
+                                ->whereDate('data', '<=', Carbon::parse(now())->format("Y-m-d"))
+                                ->where('cnpj', $empresa->cnpj)
+                                ->where('inativo', 2)
+                                ->orderByDesc('id')
+                                ->simplePaginate();
+            
+            return view('detalhe', compact(['breadcrumbs', 'empresa','publicacoes', 'filtros', 'tipos', ]));
         }
 
     // Outros metodos

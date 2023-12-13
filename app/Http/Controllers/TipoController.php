@@ -30,7 +30,7 @@ class TipoController extends Controller
                             }
                        })
                        ->orderBy('id')
-                       ->paginate();
+                       ->simplePaginate();
                        
         return view('legal/admin/tipo/listar-tipo', compact(['breadcrumbs', 'tipos', 'filtros', ]));
     }

@@ -58,7 +58,7 @@ class AcervoController extends Controller
                                     }
                                })
                                ->orderByDesc('id')
-                               ->paginate();
+                               ->simplePaginate();
         
         return view('legal/admin/publicacao/listar-publicacao', compact(['breadcrumbs', 'publicacoes', 'filtros', 'empresas', 'tipos', ]));
     }

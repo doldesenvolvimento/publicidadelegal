@@ -69,55 +69,26 @@
       <div class="card">
         <div class="card-header border-bottom">
           <h1 class="">Publicações</h1>
-          <p class="texto1">Acesse os balanços e os fatos relevantes que envolvem as principais empresas do País. Leia notícias de negócios, veja as cotações das moedas e os índices da bolsa.</p>
-
+          <div class="col-md-6">
+            <div class="cliente">
+              <h2>Empresa</h2>
+              <p><strong>Nome/Razão Social:</strong> {{ $empresa->nome }}</p>
+              <p><strong>CPF/CNPJ:</strong>
+                @if (strlen($empresa->cnpj) == 14)
+                  {!! app(App\Http\Controllers\UtilController::class)->mask($empresa->cnpj, '##.###.###/####-##') !!}    
+                @else
+                  {!! app(App\Http\Controllers\UtilController::class)->mask($empresa->cnpj, '###.###.###-##') !!}
+                @endif
+              </p>
+            </div>
+          </div>
         </div>
         <!--FORMULARIO DE BUSCA -->
         <div class="card-body mt-2">
-          <form action="{{ route('home') }}" class="dt_adv_search" method="POST">
+          <form action="{{ route('detalhe', $empresa->id) }}" class="dt_adv_search" method="POST">
             @csrf
 
             <div class="row g-1 mb-md-1">
-              <div class="col-md-3">
-                <label class="form-label">EMPRESA:</label>
-                <select class="select2 form-select" name="empresa_id" id="empresa_id">
-                  <option value="">Selecione uma opção</option>
-
-                    @if (isset($empresas))
-                      @foreach($empresas as $empresa)
-                        <option value="{{ $empresa->id }}"
-                        @if (isset($filtros['empresa_id']) && $filtros['empresa_id'] == $empresa->id)
-                          selected
-                        @else
-                          @if (old('empresa_id') && old('empresa_id') == $empresa->id)
-                            selected
-                          @endif
-                        @endif
-                        >{{ $empresa->nome }}</option>
-                      @endforeach    
-                    @endif
-
-                </select>
-              </div>
-              <div class="col-md-3">
-                <label class="form-label">CPF/CNPJ:</label>
-                <input 
-                  type="number" 
-                  class="form-control" 
-                  name="cnpj"
-                  
-                  @if (isset($filtros['cnpj']))
-                    value = {{ $filtros['cnpj'] }}
-                  @endif
-
-                  @if (old('cnpj'))
-                    value="{{ old('cnpj') }}"  
-                  @endif
-                                    
-                  id="basicInput" 
-                  placeholder="CPF/CNPJ (somente números)" 
-                />
-              </div>
               <div class="col-md-3">
                 <label class="form-label">TIPO:</label>
                 <select class="select2 form-select" name="tipo_id" id="tipo_id">
@@ -140,7 +111,7 @@
                 </select>
               </div>
               <div class="col-md-2">
-                <label class="form-label">DATA DA PUBLICAÇÃO:</label>
+                <label class="form-label">INÍCIO:</label>
                 <input
                   type="date"
                   class="form-control dt-input"
@@ -152,6 +123,26 @@
 
                   @if (old('inicio'))
                     value="{{ old('inicio') }}"  
+                  @endif
+
+                  data-column="3"
+                  placeholder="Web designer"
+                  data-column-index="2"
+                />
+              </div>
+              <div class="col-md-2">
+                <label class="form-label">FIM:</label>
+                <input
+                  type="date"
+                  class="form-control dt-input"
+                  name="fim"
+
+                  @if (isset($filtros['fim']))
+                    value = {{ $filtros['fim'] }}
+                  @endif
+
+                  @if (old('fim'))
+                    value="{{ old('fim') }}"  
                   @endif
 
                   data-column="3"
@@ -183,8 +174,6 @@
             <table class="table table-hover">
               <thead>
                 <tr>
-                  <th>Empresa</th>
-                  <th>CPF/CNPJ</th>
                   <th>TIPO</th>
                   <th>DATA</th>
                   <th></th>
@@ -195,26 +184,8 @@
                 @if(isset($publicacoes[0]->id))
                   @foreach($publicacoes as $publicacao)
                     <tr>
-                      <td>
-                      <span class="fw-bold"><a href="{{ route('detalhe', $publicacao->empresa->id) }}">{{ $publicacao->empresa->nome }}</a></span>
-                      </td>
-                      <td class="fw-bold">
-                        @if (strlen($publicacao->cnpj) == 14)
-                          <a href="{{ route('detalhe', $publicacao->empresa->id) }}">
-                            {!! app(App\Http\Controllers\UtilController::class)->mask($publicacao->cnpj, '##.###.###/####-##') !!}
-                          </a>    
-                        @else
-                          <a href="{{ route('detalhe', $publicacao->empresa->id) }}">
-                            {!! app(App\Http\Controllers\UtilController::class)->mask($publicacao->cnpj, '###.###.###-##') !!}
-                          </a>  
-                        @endif
-                      </td>
-                      <td class="fw-bold">
-                        <a href="{{ route('detalhe', $publicacao->empresa->id) }}">{{ $publicacao->tipo->descricao }}</a>
-                      </td>
-                      <td class="fw-bold">
-                        <a href="{{ route('detalhe', $publicacao->empresa->id) }}">{{ \Carbon\Carbon::parse($publicacao->data)->format("d/m/Y") }}</a>
-                      </td>
+                      <td class="fw-bold">{{ $publicacao->tipo->descricao }}</td>
+                      <td class="fw-bold">{{ \Carbon\Carbon::parse($publicacao->data)->format("d/m/Y") }}</td>
                       <td class="text-end">
                         <div class="text-nowrap btn-group" role="group" aria-label="Basic example">
                           <a href="{{ route('download-home', str_replace('/', '_', $publicacao->anexo)) }}" target="_blank" class="btn btn-outline-primary">

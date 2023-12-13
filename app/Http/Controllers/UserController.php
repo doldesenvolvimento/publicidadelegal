@@ -39,7 +39,7 @@ class UserController extends Controller
               })
               ->where('id', Auth::id())
               ->orderByDesc('id')
-              ->paginate();
+              ->simplePaginate();
         }else
         {
             $usuarios = User::where(function($query) use ($request){
@@ -59,7 +59,7 @@ class UserController extends Controller
                 }
               })
               ->orderByDesc('id')
-              ->paginate();
+              ->simplePaginate();
         }
 
         return view('legal/admin/usuario/listar-usuario', compact(['breadcrumbs', 'usuarios', 'filtros', ]));
