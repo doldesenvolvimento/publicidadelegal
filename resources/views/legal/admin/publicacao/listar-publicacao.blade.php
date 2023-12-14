@@ -37,7 +37,7 @@
       <div class="card-body">
         <p class="card-text">
           Validadas pelo
-          <a href="https://verificador.iti.gov.br/" target="_blank">Instituto Nacional de Tecnologia da Informação (ITI).</a>
+          <a href="https://verificador.iti.br/" target="_blank">Instituto Nacional de Tecnologia da Informação (ITI).</a>
         </p>
         <div class="row">
           <form action="{{ route('index-empresa') }}" method="POST">

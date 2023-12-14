@@ -278,7 +278,7 @@
   <a class="nav-link" href="https://dol.com.br/parceiros?d=1" title="PARCEIROS">PARCEIROS</a>
   </li>
   <li>
-    <a class="nav-link-iti" href="https://verificador.iti.gov.br/" title="VALIDADOR" target="_blank">VALIDADOR (ITI)</a>
+    <a class="nav-link-iti" href="https://verificador.iti.br/" title="VALIDADOR" target="_blank">VALIDADOR (ITI)</a>
     </li>
   </ul>
 
