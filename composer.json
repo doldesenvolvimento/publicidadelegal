@@ -16,8 +16,6 @@
     "laravel/framework": "^8.40",
     "laravel/tinker": "^2.5",
     "laravellegends/pt-br-validator": "^9.0",
-    "setasign/fpdf": "^1.8",
-    "setasign/fpdi": "^2.3",
     "shivella/laravel-bitly": "^1.1",
     "simplesoftwareio/simple-qrcode": "~4"
   },
